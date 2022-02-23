@@ -6,5 +6,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-first-app';
+
+
+  constructor(){
+
+  }
+
+  items:string[]=[];
+
+  textValue: string='';
+  isShowErrorMessage: boolean = false;
+
+  addNew(){
+    if(this.textValue != ''){
+      this.isShowErrorMessage = false;
+
+      this.items.push(this.textValue);
+      this.textValue = '';
+    }else{
+      this.isShowErrorMessage = true;
+    }
+
+  }
+
+  deleteItem(index: number){
+    console.log(index);
+    this.items.splice(index,1);
+
+  }
 }
