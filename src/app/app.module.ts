@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { FeaturedListComponent } from './components/featured-list/featured-list.component';
+import { ProductComponent } from './components/product-list/product/product.component';
+import { ParentComponent } from './components/lifecycle/parent/parent.component';
+import { ChildComponent } from './components/lifecycle/child/child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ProductListComponent,
-    FeaturedListComponent
+    FeaturedListComponent,
+    ProductComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
