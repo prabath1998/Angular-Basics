@@ -17,3 +17,17 @@
 </button>
 
 <app-child *ngIf="isChild" [textFromParent]="someTexts"></app-child>
+<br /><br />
+
+<div class="col-4">
+  <div class="form-group">
+    <label for="">Amount</label>
+    <input
+      appCurrencyInput
+      [currencyCode]="'LKR'"
+      type="text"
+      class="form-control"
+      placeholder="Enter amount here..."
+    />
+  </div>
+</div>

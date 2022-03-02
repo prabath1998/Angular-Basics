@@ -8,7 +8,7 @@ import { Feature } from 'src/app/shared/interfaces/feature';
 })
 export class FeaturedListComponent implements OnInit {
   featureProducts: Feature[] = [];
-
+  //cardColor: string = 'bg-warning';
   constructor() {}
 
   ngOnInit(): void {
@@ -52,5 +52,21 @@ export class FeaturedListComponent implements OnInit {
         price: 100,
       },
     ];
+  }
+
+  getCardColor(price: number): string {
+    let cardColor: string;
+
+    // if (price > 500) {
+    //   cardColor = 'bg-danger';
+    // } else if (price > 180) {
+    //   cardColor = 'bg-warning';
+    // } else {
+    //   cardColor = 'bg-white';
+    // }
+
+    cardColor = price > 400 ? 'bg-danger' : 'bg-warning';
+
+    return cardColor;
   }
 }

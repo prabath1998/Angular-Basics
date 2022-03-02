@@ -1,6 +1,19 @@
-<app-header></app-header>
-<!--
-<div class="col-12">
+<app-header (routeChange)="goTo($event)"></app-header>
+
+<!-- ng-switch -->
+<div [ngSwitch]="routePath">
+  <div *ngSwitchCase="'products'">
+    <app-product-list></app-product-list>
+  </div>
+
+  <div *ngSwitchCase="'ft-products'">
+    <app-featured-list></app-featured-list>
+  </div>
+
+  <div *ngSwitchDefault></div>
+</div>
+
+<!-- <div class="col-12">
   <div class="row">
     <div class="col-9">
       <app-product-list></app-product-list>
@@ -10,4 +23,4 @@
     </div>
   </div>
 </div> -->
-<app-parent></app-parent>
+<!-- <app-parent></app-parent> -->

@@ -9,6 +9,8 @@ import { FeaturedListComponent } from './components/featured-list/featured-list.
 import { ProductComponent } from './components/product-list/product/product.component';
 import { ParentComponent } from './components/lifecycle/parent/parent.component';
 import { ChildComponent } from './components/lifecycle/child/child.component';
+import { CurrencyInputDirective } from './shared/directives/currency-input.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,11 @@ import { ChildComponent } from './components/lifecycle/child/child.component';
     FeaturedListComponent,
     ProductComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    CurrencyInputDirective,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
