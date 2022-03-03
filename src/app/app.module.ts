@@ -11,6 +11,7 @@ import { ParentComponent } from './components/lifecycle/parent/parent.component'
 import { ChildComponent } from './components/lifecycle/child/child.component';
 import { CurrencyInputDirective } from './shared/directives/currency-input.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { PostsComponent } from './components/posts/posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     ParentComponent,
     ChildComponent,
     CurrencyInputDirective,
+    PostsComponent,
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],
