@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -12,7 +13,11 @@ export class PostsnewComponent implements OnInit {
   pageSize: number = 5;
   page: number = 1;
 
-  constructor(private postService: PostService) {}
+  constructor(
+    private postService: PostService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getData();
@@ -24,4 +29,14 @@ export class PostsnewComponent implements OnInit {
       this.collectionSize = this.postList.length;
     });
   }
+
+  goToDetailsPage(id: number) {
+    this.router.navigate(['/details', id]);
+  }
+
+  // goToView(id: number) {
+  //   this.router.navigate(['/details'], {
+  //     queryParams: { type: 'view', postId: id },
+  //   });
+  // }
 }

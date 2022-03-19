@@ -8,6 +8,7 @@
             <th>Id</th>
             <th>Title</th>
             <th>Description</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +21,35 @@
             <td>{{ post.id }}</td>
             <td>{{ post.title }}</td>
             <td>{{ post.body }}</td>
+            <td>
+              <!-- <a
+                class="btn btn-sm btn-primary"
+                (click)="goToDetailsPage(post.id)"
+                >Edit</a
+              > -->
+
+              <a
+                class="btn btn-sm btn-primary"
+                [routerLink]="['/details', post.id]"
+                >Update</a
+              >
+
+              <a
+                class="btn btn-sm btn-warning mt-2"
+                [routerLink]="[
+                  '/post-details',
+                  { type: 'view', postId: post.id }
+                ]"
+                >View</a
+              >
+
+              <a
+                class="btn btn-sm btn-danger mt-2"
+                [routerLink]="['/post-details']"
+                [queryParams]="{ type: 'view', postId: post.id }"
+                >View2</a
+              >
+            </td>
           </tr>
         </tbody>
       </table>

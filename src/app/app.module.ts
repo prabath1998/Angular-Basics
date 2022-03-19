@@ -15,6 +15,7 @@ import { PostsComponent } from './components/posts/posts/posts.component';
 import { PostsnewComponent } from './components/postsnew/postsnew.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
 
 const routes: Routes = [
   // {
@@ -47,6 +48,14 @@ const routes: Routes = [
     component: PostsnewComponent,
   },
   {
+    path: 'details/:id',
+    component: PostDetailComponent,
+  },
+  {
+    path: 'post-details',
+    component: PostDetailComponent,
+  },
+  {
     path: '**',
     component: ChildComponent,
     // redirectTo: 'product-list',
@@ -66,6 +75,7 @@ const routes: Routes = [
     CurrencyInputDirective,
     PostsComponent,
     PostsnewComponent,
+    PostDetailComponent,
   ],
   imports: [
     BrowserModule,

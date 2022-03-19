@@ -11,4 +11,10 @@ export class PostService {
   getPostList(): Observable<any> {
     return this.httpClient.get('https://jsonplaceholder.typicode.com/posts');
   }
+
+  getPostById(id: number): Observable<any> {
+    return this.httpClient.get(
+      `https://jsonplaceholder.typicode.com/posts/${id}`
+    );
+  }
 }
