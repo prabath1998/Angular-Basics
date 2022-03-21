@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 // import { EventEmitter } from 'stream';
 
 @Component({
@@ -7,7 +8,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  userName!: string;
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (
+      localStorage.getItem('userName') != '' &&
+      localStorage.getItem('userName') != null
+    ) {
+      this.userName = localStorage.getItem('userName') ?? '';
+    }
+  }
+
+  logout() {
+    localStorage.removeItem('userId');
+    localStorage.removeItem('userName');
+    this.router.navigate(['/login']);
+  }
 }

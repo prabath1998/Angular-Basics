@@ -38,7 +38,24 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" routerLink="/parent">Parent</a>
           <a class="dropdown-item" href="#" routerLink="/details">Details</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="nav float-right" *ngIf="userName">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{ userName }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" (click)="logout()">LogOut</a>
         </div>
       </li>
     </ul>

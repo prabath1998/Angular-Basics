@@ -16,6 +16,10 @@ import { PostsnewComponent } from './components/postsnew/postsnew.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+
+import { DeactivateGuard } from './shared/guards/deactivate.guard';
 
 const routes: Routes = [
   // {
@@ -30,10 +34,13 @@ const routes: Routes = [
   {
     path: 'product-list',
     component: ProductListComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'ft-list',
     component: FeaturedListComponent,
+    canActivate: [AuthGuard],
+    canDeactivate: [DeactivateGuard],
   },
   {
     path: 'posts',
@@ -42,10 +49,12 @@ const routes: Routes = [
   {
     path: 'parent',
     component: ParentComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'details',
     component: PostsnewComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'details/:id',
@@ -54,6 +63,11 @@ const routes: Routes = [
   {
     path: 'post-details',
     component: PostDetailComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: '**',
@@ -76,6 +90,7 @@ const routes: Routes = [
     PostsComponent,
     PostsnewComponent,
     PostDetailComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
