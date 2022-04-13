@@ -20,6 +20,13 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 
 import { DeactivateGuard } from './shared/guards/deactivate.guard';
+import { PipesExampleComponent } from './components/pipes-example/pipes-example.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReversePipe } from './pipes/reverse.pipe';
+import { SqrootPipe } from './pipes/sqroot.pipe';
+import { FileSizePipe } from './pipes/file-size.pipe';
+import { PowerPipe } from './pipes/power.pipe';
+import { RepeatPipe } from './pipes/repeat.pipe';
 
 const routes: Routes = [
   // {
@@ -45,6 +52,10 @@ const routes: Routes = [
   {
     path: 'posts',
     component: PostsComponent,
+  },
+  {
+    path: 'pipes',
+    component: PipesExampleComponent,
   },
   {
     path: 'parent',
@@ -91,6 +102,12 @@ const routes: Routes = [
     PostsnewComponent,
     PostDetailComponent,
     LoginComponent,
+    PipesExampleComponent,
+    ReversePipe,
+    SqrootPipe,
+    FileSizePipe,
+    PowerPipe,
+    RepeatPipe,
   ],
   imports: [
     BrowserModule,
@@ -98,6 +115,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     NgbPaginationModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
