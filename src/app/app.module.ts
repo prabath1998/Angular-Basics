@@ -27,6 +27,7 @@ import { SqrootPipe } from './pipes/sqroot.pipe';
 import { FileSizePipe } from './pipes/file-size.pipe';
 import { PowerPipe } from './pipes/power.pipe';
 import { RepeatPipe } from './pipes/repeat.pipe';
+import { ObservableComponent } from './components/observable/observable.component';
 
 const routes: Routes = [
   // {
@@ -81,6 +82,10 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
+    path: 'observable',
+    component: ObservableComponent,
+  },
+  {
     path: '**',
     component: ChildComponent,
     // redirectTo: 'product-list',
@@ -108,6 +113,7 @@ const routes: Routes = [
     FileSizePipe,
     PowerPipe,
     RepeatPipe,
+    ObservableComponent,
   ],
   imports: [
     BrowserModule,
