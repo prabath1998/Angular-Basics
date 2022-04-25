@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -29,6 +29,7 @@ import { PowerPipe } from './pipes/power.pipe';
 import { RepeatPipe } from './pipes/repeat.pipe';
 import { ObservableComponent } from './components/observable/observable.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ReactiveFromV2Component } from './components/reactive-from-v2/reactive-from-v2.component';
 
 const routes: Routes = [
   // {
@@ -88,6 +89,10 @@ const routes: Routes = [
   },
   {
     path: 'reactive-form',
+    component: ReactiveFromV2Component,
+  },
+  {
+    path: 'template-driven-form',
     component: ReactiveFormComponent,
   },
   {
@@ -120,6 +125,7 @@ const routes: Routes = [
     RepeatPipe,
     ObservableComponent,
     ReactiveFormComponent,
+    ReactiveFromV2Component,
   ],
   imports: [
     BrowserModule,
@@ -128,6 +134,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     NgbPaginationModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,6 @@
 <div class="container">
     <h2 class="mt-5"> Student Registration Form</h2>
-    <form novalidate #f="ngForm">
+    <form novalidate #f="ngForm" (ngSubmit)="onSubmit()">
 
         <fieldset ngModelGroup="name">
             <div class="col-6">

@@ -18,4 +18,18 @@ export class ReactiveFormComponent implements OnInit {
 
   }
 
+  onSubmit(){
+    
+    if(this.form.invalid){
+      alert('Please enter valid data');
+      return;
+    }
+
+    //pass the form object to backend via the service
+    alert('Success');
+    this.form.reset();
+    this.studentModel.language = '';
+    
+  }
+
 }
