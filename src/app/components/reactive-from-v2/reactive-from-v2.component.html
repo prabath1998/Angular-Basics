@@ -1,33 +1,32 @@
-<div class="container">
-    <h2 class="mt-5"> Student Registration Form</h2>
+<div class="container" id="main">
+    <h2 class="mt-5">Student Registration Form</h2>
     <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
-
         <div class="col-6">
             <div class="form-group">
                 <label>First Name</label>
-                <input formControlName="firstName" type="text" class="form-control" placeholder="Enter First Name" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors}">
+                <input formControlName="firstName" type="text" class="form-control" placeholder="Enter First Name" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
                 <div class="invalid-feedback" *ngIf="submitted && f['firstName'].errors">
-                    <div *ngIf="f['firstName'].errors['required']">Please Enter First Name</div>
+                    <div *ngIf="f.firstName.errors.required">Please Enter First Name</div>
+                    <div *ngIf="f.firstName.errors.pattern">Firstname is invalid</div>
                 </div>
             </div>
-
         </div>
 
         <div class="col-6">
             <div class="form-group">
                 <label>Last Name</label>
-                <input formControlName="lastName" type="text" class="form-control" placeholder="Enter Last Name">
-
-            </div>
-            <div class="invalid-feedback">
-                <p>Please Enter Last Name</p>
+                <input formControlName="lastName" type="text" class="form-control" placeholder="Enter Last Name" [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }" />
+                <div class="invalid-feedback" *ngIf="submitted && f['lastName'].errors">
+                    <p *ngIf="f.lastName.errors.required">Please Enter Last Name</p>
+                    <div *ngIf="f.lastName.errors.pattern">Last Name is invalid</div>
+                </div>
             </div>
         </div>
 
         <div class="col-6">
             <div class="form-group">
                 <label>DOB</label>
-                <input formControlName="dob" type="date" class="form-control " placeholder="Enter DOB" [ngClass]="{ 'is-invalid':submitted && f['dob'].errors}">
+                <input formControlName="dob" type="date" class="form-control" placeholder="Enter DOB" [ngClass]="{ 'is-invalid': submitted && f['dob'].errors }" />
                 <div class="invalid-feedback" *ngIf="submitted && f['dob'].errors">
                     <div *ngIf="f['dob'].errors['required']">Please Enter DOB</div>
                 </div>
@@ -37,9 +36,11 @@
         <div class="col-6">
             <div class="form-group">
                 <label>Contact No</label>
-                <input formControlName="contactNo" type="text" class="form-control " placeholder="Enter Contact No" [ngClass]="{ 'is-invalid':submitted && f['contactNo'].errors}">
+                <input formControlName="contactNo" type="text" class="form-control" placeholder="Enter Contact No" [ngClass]="{ 'is-invalid': submitted && f['contactNo'].errors }" />
                 <div class="invalid-feedback" *ngIf="submitted && f['contactNo'].errors">
-                    <div *ngIf="f['contactNo'].errors['required']">Please Enter Contact No</div>
+                    <div *ngIf="f['contactNo'].errors['required']">
+                        Please Enter Contact No
+                    </div>
                 </div>
             </div>
         </div>
@@ -47,9 +48,14 @@
         <div class="col-6">
             <div class="form-group">
                 <label>Address</label>
-                <textarea formControlName="address" type="text" rows="3" class="form-control " placeholder="Enter Address" [ngClass]="{ 'is-invalid':submitted && f['address'].errors}"></textarea>
+                <textarea formControlName="address" type="text" rows="3" class="form-control" placeholder="Enter Address" [ngClass]="{ 'is-invalid': submitted && f['address'].errors }"></textarea>
                 <div class="invalid-feedback" *ngIf="submitted && f['address'].errors">
-                    <div *ngIf="f['address'].errors['required']">Please Enter Address</div>
+                    <div *ngIf="f['address'].errors['required']">
+                        Please Enter Address
+                    </div>
+                    <div *ngIf="f.address.errors.maxlength">
+                        Maximum character length is 200 characters
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,9 +63,10 @@
         <div class="col-6">
             <div class="form-group">
                 <label>Email</label>
-                <input formControlName="email" type="text" class="form-control " placeholder="Enter Email" [ngClass]="{ 'is-invalid':submitted && f['email'].errors}">
+                <input formControlName="email" type="text" class="form-control" placeholder="Enter Email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
                 <div class="invalid-feedback" *ngIf="submitted && f['email'].errors">
                     <div *ngIf="f['email'].errors['required']">Please Enter Email</div>
+                    <div *ngIf="f['email'].errors['email']">Please Enter Valid Email</div>
                 </div>
             </div>
         </div>
@@ -67,9 +74,14 @@
         <div class="col-6">
             <div class="form-group">
                 <label>Password</label>
-                <input formControlName="password" type="text" class="form-control " placeholder="Enter Password" name="firstName" [ngClass]="{ 'is-invalid':submitted && f['password'].errors}">
+                <input formControlName="password" type="text" class="form-control" placeholder="Enter Password" name="firstName" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
                 <div class="invalid-feedback" *ngIf="submitted && f['password'].errors">
-                    <div *ngIf="f['password'].errors['required']">Please Enter Password</div>
+                    <div *ngIf="f['password'].errors['required']">
+                        Please Enter Password
+                    </div>
+                    <div *ngIf="f.password.errors.minlength">
+                        Please Enter Minimum 8 Characters
+                    </div>
                 </div>
             </div>
         </div>
@@ -77,16 +89,31 @@
         <div class="col-6">
             <div class="form-group">
                 <label>Conform Password</label>
-                <input formControlName="conformPassword" type="text" class="form-control " placeholder="Conform Password" name="firstName" [ngClass]="{ 'is-invalid':submitted && f['conformPassword'].errors}">
+                <input formControlName="conformPassword" type="text" class="form-control" placeholder="Conform Password" name="conformPassword" [ngClass]="{ 'is-invalid': submitted && f['conformPassword'].errors }" />
                 <div class="invalid-feedback" *ngIf="submitted && f['conformPassword'].errors">
-                    <div *ngIf="f['conformPassword'].errors['required']">Please Conform Password</div>
+                    <div *ngIf="f['conformPassword'].errors['required']">
+                        Please Conform Password
+                    </div>
+                    <div *ngIf="f.conformPassword.errors.mustMatch">
+                        Password does not match
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="container">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+            <button type="button" class="btn btn-danger" (click)="clearForm()">
+        <i class="fa-solid fa-eraser"></i> Clear
+      </button>
+            <button type="submit" class="btn btn-success ml-2" [disabled]="isLoading">
+        <i *ngIf="isLoading" class="fas fa-spinner fa-spin"> </i>
+        <i *ngIf="!isLoading" class="fa-solid fa-circle-plus"></i>
+        Submit
+      </button>
 
+            <button type="button" class="btn btn-danger" (click)="setAsPasswordReq()">
+        <i class="fa-solid fa-eraser"></i> Check
+      </button>
+        </div>
     </form>
 </div>
