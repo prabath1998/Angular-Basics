@@ -17,4 +17,8 @@ export class PostService {
       `https://jsonplaceholder.typicode.com/posts/${id}`
     );
   }
+
+  multiple(no1:number, no2:number):number{
+    return no1 * no2;
+  }
 }

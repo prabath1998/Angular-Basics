@@ -30,6 +30,9 @@ import { RepeatPipe } from './pipes/repeat.pipe';
 import { ObservableComponent } from './components/observable/observable.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ReactiveFromV2Component } from './components/reactive-from-v2/reactive-from-v2.component';
+import { InvoiceComponent } from './components/invoice/invoice.component';
+import { ReactiveFormV3Component } from './components/reactive-form-v3/reactive-form-v3.component';
+import { CustomerComponent } from './components/customer/customer.component';
 
 const routes: Routes = [
   // {
@@ -92,8 +95,20 @@ const routes: Routes = [
     component: ReactiveFromV2Component,
   },
   {
+    path: 'reactive-form-v3',
+    component: ReactiveFormV3Component,
+  },
+  {
     path: 'template-driven-form',
     component: ReactiveFormComponent,
+  },
+  {
+    path: 'invoice',
+    component: InvoiceComponent,
+  },
+  {
+    path: 'customer',
+    component: CustomerComponent,
   },
   {
     path: '**',
@@ -126,6 +141,9 @@ const routes: Routes = [
     ObservableComponent,
     ReactiveFormComponent,
     ReactiveFromV2Component,
+    InvoiceComponent,
+    ReactiveFormV3Component,
+    CustomerComponent,
   ],
   imports: [
     BrowserModule,

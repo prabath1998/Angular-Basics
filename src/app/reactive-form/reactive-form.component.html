@@ -9,7 +9,7 @@
                     <input type="text" #firstName="ngModel" class="form-control is-invalid" [ngClass]="{
                         'is-invalid':firstName.invalid && (firstName.dirty || firstName.touched),
                         'is-valid': firstName.valid && (firstName.dirty || firstName.touched)
-                    }" placeholder="Enter First Name" name="firstName" [(ngModel)]="studentModel.firstName" required>
+                    }" placeholder="Enter First Name" name="firstName" [(ngModel)]="studentModel.firstName">
                     <div class="invalid-feedback">
                         <p>Please Enter First Name</p>
                     </div>
@@ -72,8 +72,15 @@
             </div>
         </div>
 
+        <div class="col-6">
+            <div class="form-group">
+                <input type="checkbox" [(ngModel)]="checked" [ngModelOptions]="{standalone: true}">&nbsp;
+                <label> I agree to the terms of service</label>
+            </div>
+        </div>
+
         <div class="container">
-            <button type="submit" class="btn btn-success" [disabled]="f.invalid">Submit</button>
+            <button type="submit" class="btn btn-success" [disabled]="f.invalid || checked">Submit</button>
         </div>
 
     </form>

@@ -1,0 +1,124 @@
+<div class="p-5">
+    <div class="col-md-12">
+        <h2>Customer Registration</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="customerForm" (ngSubmit)="onSaveOrUpdate()">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors,'is-valid':(f.firstName.dirty || f.firstName.touched) && f.firstName.valid }" placeholder="Enter First Name">
+                                        <div class="invalid-feedback" *ngIf="submitted && f['firstName'].errors">
+                                            <div *ngIf="f.firstName.errors.required">Please Enter First Name</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors,'is-valid':(f.lastName.dirty || f.lastName.touched) && f.lastName.valid }" placeholder="Enter Last Name">
+                                        <div class="invalid-feedback" *ngIf="submitted && f['lastName'].errors">
+                                            <div *ngIf="f.lastName.errors.required">Please Enter Last Name</div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>DOB</label>
+                                        <input type="date" class="form-control" formControlName="dob" [ngClass]="{ 'is-invalid': submitted && f['dob'].errors,'is-valid':(f.dob.dirty || f.dob.touched) && f.dob.valid }" placeholder="Enter DOB">
+                                        <div class="invalid-feedback" *ngIf="submitted && f['dob'].errors">
+                                            <div *ngIf="f.firstName.errors.required">Please Enter dob</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>Contact No</label>
+                                        <input type="text" class="form-control" formControlName="contactNo" [ngClass]="{ 'is-invalid': submitted && f['contactNo'].errors,'is-valid':(f.contactNo.dirty || f.contactNo.touched) && f.contactNo.valid }" placeholder="Enter Contact No">
+                                        <div class="invalid-feedback" *ngIf="submitted && f['contactNo'].errors">
+                                            <div *ngIf="f.contactNo.errors.required">Please Enter Contact Number</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Address</label>
+                                <textarea rows="3" class="form-control" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f['address'].errors,'is-valid':(f.address.dirty || f.address.touched) && f.address.valid }" placeholder="Enter Address"></textarea>
+                                <div class="invalid-feedback" *ngIf="submitted && f['address'].errors">
+                                    <div *ngIf="f.address.errors.required">Please Enter Address</div>
+
+                                </div>
+                            </div>
+
+                            <div class="float-right">
+                                <button type="reset" class="btn btn-secondary"> Clear</button>
+                                <button type="submit" class="btn btn-warning ml-2"> Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-8">
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>DOB</th>
+                                        <th>Contact No</th>
+                                        <th>Address</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let customer of customerList | slice: (page - 1) * pageSize:page * pageSize">
+                                        <td>{{customer.firstName}}</td>
+                                        <td>{{customer.lastName}}</td>
+                                        <td>{{customer.dob}}</td>
+                                        <td>{{customer.contactNo}}</td>
+                                        <td>{{customer.address}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-success mr-2"><i class="fa-solid fa-pen"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="float-left">
+                                <b>{{ collectionSize }} Records Found</b>
+                            </div>
+
+                            <div class="float-right">
+                                <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="collectionSize"></ngb-pagination>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

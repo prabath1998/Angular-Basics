@@ -12,6 +12,7 @@ export class ReactiveFromV2Component implements OnInit {
 
   submitted: boolean = false;
   isLoading:boolean = false;
+  checked: boolean = false;
 
   get f() {
     return this.studentForm.controls;
@@ -42,7 +43,8 @@ export class ReactiveFromV2Component implements OnInit {
         // conformPassword: ['', [Validators.required]],
 
         password: ['',[Validators.minLength(8)]],
-        conformPassword: [''],
+        conformPassword: ['']
+        // checkbox:['',[Validators.required]]
       },
       {
         validators: MustMatch('password', 'conformPassword'),
@@ -100,4 +102,6 @@ export class ReactiveFromV2Component implements OnInit {
       this.f.conformPassword.setValidators(Validators.required);
     }
   }
+
+  
 }

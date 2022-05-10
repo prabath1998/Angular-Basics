@@ -9,6 +9,7 @@ import { Student } from '../models/student';
 export class ReactiveFormComponent implements OnInit {
   studentModel:Student = new Student();
   @ViewChild('f') form:any;
+  checked: boolean = true;
 
   languages:string[] =['Sinhala','Tamil','English','French','German'];
 

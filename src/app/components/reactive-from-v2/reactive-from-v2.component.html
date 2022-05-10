@@ -1,10 +1,10 @@
 <div class="container" id="main">
-    <h2 class="mt-5">Student Registration Form</h2>
-    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <h2 class="mt-5">Registration Form</h2>
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()" class="reg-form">
         <div class="col-6">
             <div class="form-group">
                 <label>First Name</label>
-                <input formControlName="firstName" type="text" class="form-control" placeholder="Enter First Name" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
+                <input formControlName="firstName" type="text" class="form-control is-invalid" placeholder="Enter First Name" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
                 <div class="invalid-feedback" *ngIf="submitted && f['firstName'].errors">
                     <div *ngIf="f.firstName.errors.required">Please Enter First Name</div>
                     <div *ngIf="f.firstName.errors.pattern">Firstname is invalid</div>
@@ -63,7 +63,7 @@
         <div class="col-6">
             <div class="form-group">
                 <label>Email</label>
-                <input formControlName="email" type="text" class="form-control" placeholder="Enter Email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                <input formControlName="email" type="text" class="form-control" placeholder="Enter Email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors,'is-valid':submitted && f.email.valid}" />
                 <div class="invalid-feedback" *ngIf="submitted && f['email'].errors">
                     <div *ngIf="f['email'].errors['required']">Please Enter Email</div>
                     <div *ngIf="f['email'].errors['email']">Please Enter Valid Email</div>
@@ -101,19 +101,26 @@
             </div>
         </div>
 
+        <div class="col-6">
+            <div class="form-group">
+                <input type="checkbox">&nbsp;
+                <label> I agree to the terms of service</label>
+            </div>
+        </div>
+
         <div class="container">
             <button type="button" class="btn btn-danger" (click)="clearForm()">
         <i class="fa-solid fa-eraser"></i> Clear
       </button>
-            <button type="submit" class="btn btn-success ml-2" [disabled]="isLoading">
+            <button type="submit" class="btn btn-success ml-2">
         <i *ngIf="isLoading" class="fas fa-spinner fa-spin"> </i>
         <i *ngIf="!isLoading" class="fa-solid fa-circle-plus"></i>
         Submit
       </button>
-
-            <button type="button" class="btn btn-danger" (click)="setAsPasswordReq()">
+            <!-- 
+            <button type="button" class="btn btn-danger ml-2" (click)="setAsPasswordReq()">
         <i class="fa-solid fa-eraser"></i> Check
-      </button>
+      </button> -->
         </div>
     </form>
 </div>
